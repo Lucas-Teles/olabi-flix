@@ -30,19 +30,20 @@ public class Filme {
     protected Filme() {}
 
     public Filme(String title, String year, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, String awards) {
-        Title = title;
-        Year = year;
-        Rated = rated;
-        Released = released;
-        Runtime = runtime;
-        Genre = genre;
-        Director = director;
-        Writer = writer;
-        Actors = actors;
-        Plot = plot;
-        Language = language;
-        Country = country;
-        Awards = awards;
+        id = UUID.randomUUID();
+        this.Title = title;
+        this.Year = year;
+        this.Rated = rated;
+        this.Released = released;
+        this.Runtime = runtime;
+        this.Genre = genre;
+        this.Director = director;
+        this.Writer = writer;
+        this.Actors = actors;
+        this.Plot = plot;
+        this.Language = language;
+        this.Country = country;
+        this.Awards = awards;
     }
 
     public UUID getId() {
