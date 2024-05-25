@@ -1,6 +1,8 @@
 package com.olabi.olabiflix.model.entity;
 
 
+import com.olabi.olabiflix.model.value.Ratings;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -21,10 +23,12 @@ public class Serie {
     private ArrayList<String> writers;
     private String poster;
     private ArrayList<String> actors;
+    @Embedded
+    private Ratings ratings;
 
     protected Serie(){}
 
-    public Serie(String title, String totalSeasons, ArrayList<String> genre, ArrayList<String> writers, String poster, ArrayList<String> actors) {
+    public Serie(String title, String totalSeasons, ArrayList<String> genre, ArrayList<String> writers, String poster, ArrayList<String> actors, Ratings ratings) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.totalSeasons = totalSeasons;
@@ -32,6 +36,7 @@ public class Serie {
         this.writers = writers;
         this.poster = poster;
         this.actors = actors;
+        this.ratings = ratings;
     }
 
     public UUID getId() {
@@ -88,5 +93,12 @@ public class Serie {
 
     public void setActors(ArrayList<String> actors) {
         this.actors = actors;
+    }
+
+    public Ratings getRatings(){
+        return ratings;
+    }
+    public void setRatings(Ratings ratings) {
+        this.ratings = ratings;
     }
 }

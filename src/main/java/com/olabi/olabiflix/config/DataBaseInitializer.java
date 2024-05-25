@@ -2,6 +2,7 @@ package com.olabi.olabiflix.config;
 
 import com.olabi.olabiflix.model.entity.Filme;
 import com.olabi.olabiflix.model.entity.Serie;
+import com.olabi.olabiflix.model.value.Ratings;
 import com.olabi.olabiflix.repository.FilmeRepository;
 import com.olabi.olabiflix.repository.SerieRepository;
 import org.slf4j.Logger;
@@ -30,8 +31,8 @@ public class DataBaseInitializer implements CommandLineRunner {
     );
 
     public static final List<Serie> series = List.of(
-            new Serie("The Last of Us", "1", new ArrayList<>(List.of("Action", "Adventure", "Drama")), new ArrayList<>(List.of("Neil Druckmann")), "pendente URL", new ArrayList<>(List.of("Pedro Pascal", "Bella Ramsey", "Gabriel Luna"))),
-            new Serie("La Casa de Papel", "5", new ArrayList<>(List.of("Action", "Crime", "Mystery")), new ArrayList<>(List.of("Álex Pina")), "pendente URL", new ArrayList<>(List.of("Úrsula Corberó", "Álvaro Morte", "Itziar Ituño")))
+            new Serie("The Last of Us", "1", new ArrayList<>(List.of("Action", "Adventure", "Drama")), new ArrayList<>(List.of("Neil Druckmann")), "pendente URL", new ArrayList<>(List.of("Pedro Pascal", "Bella Ramsey", "Gabriel Luna")), new Ratings("9.3", "132131")),
+            new Serie("La Casa de Papel", "5", new ArrayList<>(List.of("Action", "Crime", "Mystery")), new ArrayList<>(List.of("Álex Pina")), "pendente URL", new ArrayList<>(List.of("Úrsula Corberó", "Álvaro Morte", "Itziar Ituño")), new Ratings("8.3", "234567"))
     );
     @Override
     public void run(String... args) throws Exception {
