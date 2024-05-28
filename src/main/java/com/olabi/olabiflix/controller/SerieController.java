@@ -5,6 +5,7 @@ import com.olabi.olabiflix.repository.SerieRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/series")
@@ -18,6 +19,11 @@ public class SerieController {
     @GetMapping()
     public List<Serie> getSeries(){
         return serieRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Serie getSerieById(@PathVariable(value = "id") UUID id){
+        return serieRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/criar")

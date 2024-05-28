@@ -5,6 +5,7 @@ import com.olabi.olabiflix.repository.FilmeRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/filmes")
@@ -18,6 +19,11 @@ public class FilmeController {
     @GetMapping()
     public List<Filme> getFilmes(){
         return filmeRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Filme getFilmesById(@PathVariable(value = "id") UUID id){
+        return filmeRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/criar")
