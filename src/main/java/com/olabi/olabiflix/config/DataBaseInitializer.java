@@ -49,9 +49,14 @@ public class DataBaseInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Alô pepe moreno? o banco ta conectado");
+        log.info("Inserido filmes...");
+        log.info("+++++++++++++++++++");
         filmeRepository.saveAll(filmes);
-        filmeRepository.findAll().forEach(filme -> System.out.println(filme));
+        log.info("Filmes inseridos com sucesso !!");
+        log.info("---- ---- ---- ----");
+        log.info("Inserido series...");
+        log.info("+++++++++++++++++++");
         serieRepository.saveAll(series);
-        serieRepository.findAll().forEach(serie -> System.out.println(serie));
+        log.info("Series inseridas com sucesso !!");
     }
 }
