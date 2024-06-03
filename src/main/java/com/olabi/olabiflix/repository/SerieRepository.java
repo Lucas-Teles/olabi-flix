@@ -13,4 +13,6 @@ public interface SerieRepository extends JpaRepository<Serie, UUID>{
 
     List<Serie> findByGenreIsContainingIgnoreCase(String genre);
 
+    List<Serie> findByTitleOrActors(String title, String actors);
+
 }

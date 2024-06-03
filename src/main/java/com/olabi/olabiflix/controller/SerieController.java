@@ -46,8 +46,22 @@ public class SerieController {
         return ResponseEntity.ok(series);
     }
 
+    @GetMapping("/busca-title-actors")
+    public ResponseEntity<List<Serie>> findByTitleOrActors(
+            @RequestParam(name = "title", defaultValue = "") String title,
+            @RequestParam(name = "actors", defaultValue = "") String actors
+    ){
+        List<Serie> series = serieRepository.findByTitleOrActors(title, actors);
+        return ResponseEntity.ok(series);
+    }
+
+
     @PostMapping("/criar")
     public Serie create(@RequestBody  Serie serieBody){
         return serieRepository.save(serieBody);
     }
+
+    @DeleteMapping("/{id}/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable UUID id){serieRepository.deleteById(id);}
 }
