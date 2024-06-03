@@ -6,9 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/filmes")
@@ -48,7 +46,8 @@ public class FilmeController {
     @GetMapping("/busca-title-actors")
     public ResponseEntity<List<Filme>> findByTitleOrActors(
             @RequestParam(name = "title", defaultValue = "") String title,
-            @RequestParam(name = "actors", defaultValue = "") String actors) {
+            @RequestParam(name = "actors", defaultValue = "") String actors
+    ){
         List<Filme> filmes = filmeRepository.findByTitleOrActors(title, actors);
         return ResponseEntity.ok(filmes);
     }
@@ -64,4 +63,5 @@ public class FilmeController {
     public void delete(@PathVariable UUID id){
         filmeRepository.deleteById(id);
     }
+
 }
