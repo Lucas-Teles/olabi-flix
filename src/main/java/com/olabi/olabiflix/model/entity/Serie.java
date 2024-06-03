@@ -2,13 +2,10 @@ package com.olabi.olabiflix.model.entity;
 
 
 import com.olabi.olabiflix.model.value.Ratings;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,16 +16,19 @@ public class Serie {
     private UUID id;
     private String title;
     private String totalSeasons;
-    private ArrayList<String> genre;
-    private ArrayList<String> writers;
+    @ElementCollection
+    private List<String> genre;
+    @ElementCollection
+    private List<String> writers;
     private String poster;
-    private ArrayList<String> actors;
+    @ElementCollection
+    private List<String> actors;
     @Embedded
     private Ratings ratings;
 
     protected Serie(){}
 
-    public Serie(String title, String totalSeasons, ArrayList<String> genre, ArrayList<String> writers, String poster, ArrayList<String> actors, Ratings ratings) {
+    public Serie(String title, String totalSeasons, List<String> genre, List<String> writers, String poster, List<String> actors, Ratings ratings) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.totalSeasons = totalSeasons;
@@ -63,19 +63,19 @@ public class Serie {
         this.totalSeasons = totalSeasons;
     }
 
-    public ArrayList<String> getGenre() {
+    public List<String> getGenre() {
         return genre;
     }
 
-    public void setGenre(ArrayList<String> genre) {
+    public void setGenre(List<String> genre) {
         this.genre = genre;
     }
 
-    public ArrayList<String> getWriters() {
+    public List<String> getWriters() {
         return writers;
     }
 
-    public void setWriters(ArrayList<String> writers) {
+    public void setWriters(List<String> writers) {
         this.writers = writers;
     }
 
@@ -87,11 +87,11 @@ public class Serie {
         this.poster = poster;
     }
 
-    public ArrayList<String> getActors() {
+    public List<String> getActors() {
         return actors;
     }
 
-    public void setActors(ArrayList<String> actors) {
+    public void setActors(List<String> actors) {
         this.actors = actors;
     }
 

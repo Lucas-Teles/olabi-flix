@@ -13,37 +13,36 @@ public class Filme {
     @Id
     @UuidGenerator
     private UUID id;
-    private String Title;
-    private String Year;
-    private String Rated;
-    private String Released;
-    private String Runtime;
-    private String Genre;
-    private String Director;
-    private String Writer;
-    private String Actors;
-    private String Plot;
-    private String Language;
-    private String Country;
-    private String Awards;
+    private String title;
+    private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
 
     protected Filme() {}
 
     public Filme(String title, String year, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, String awards) {
-        id = UUID.randomUUID();
-        this.Title = title;
-        this.Year = year;
-        this.Rated = rated;
-        this.Released = released;
-        this.Runtime = runtime;
-        this.Genre = genre;
-        this.Director = director;
-        this.Writer = writer;
-        this.Actors = actors;
-        this.Plot = plot;
-        this.Language = language;
-        this.Country = country;
-        this.Awards = awards;
+        this.title = title;
+        this.year = year;
+        this.rated = rated;
+        this.released = released;
+        this.runtime = runtime;
+        this.genre = genre;
+        this.director = director;
+        this.writer = writer;
+        this.actors = actors;
+        this.plot = plot;
+        this.language = language;
+        this.country = country;
+        this.awards = awards;
     }
 
     public UUID getId() {
@@ -55,106 +54,106 @@ public class Filme {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(String year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getRated() {
-        return Rated;
+        return rated;
     }
 
     public void setRated(String rated) {
-        Rated = rated;
+        this.rated = rated;
     }
 
     public String getReleased() {
-        return Released;
+        return released;
     }
 
     public void setReleased(String released) {
-        Released = released;
+        this.released = released;
     }
 
     public String getRuntime() {
-        return Runtime;
+        return runtime;
     }
 
     public void setRuntime(String runtime) {
-        Runtime = runtime;
+        this.runtime = runtime;
     }
 
     public String getGenre() {
-        return Genre;
+        return genre;
     }
 
     public void setGenre(String genre) {
-        Genre = genre;
+        this.genre = genre;
     }
 
     public String getDirector() {
-        return Director;
+        return director;
     }
 
     public void setDirector(String director) {
-        Director = director;
+        this.director = director;
     }
 
     public String getWriter() {
-        return Writer;
+        return writer;
     }
 
     public void setWriter(String writer) {
-        Writer = writer;
+        this.writer = writer;
     }
 
     public String getActors() {
-        return Actors;
+        return actors;
     }
 
     public void setActors(String actors) {
-        Actors = actors;
+        this.actors = actors;
     }
 
     public String getPlot() {
-        return Plot;
+        return plot;
     }
 
     public void setPlot(String plot) {
-        Plot = plot;
+        this.plot = plot;
     }
 
     public String getLanguage() {
-        return Language;
+        return language;
     }
 
     public void setLanguage(String language) {
-        Language = language;
+        this.language = language;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 
     public String getAwards() {
-        return Awards;
+        return awards;
     }
 
     public void setAwards(String awards) {
-        Awards = awards;
+        this.awards = awards;
     }
 }
