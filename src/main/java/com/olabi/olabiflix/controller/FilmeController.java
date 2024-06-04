@@ -113,15 +113,15 @@ public class FilmeController {
 
         Filme filme = filmeEncontrado.get();
 
-        List<Field> camposDaModel = List.of(filme.getClass().getDeclaredFields());
+        List<Field> fieldModel = List.of(filme.getClass().getDeclaredFields());
 
-        for(Field campo : camposDaModel) {
-            campo.setAccessible(true);
-            String nomeCampo = campo.getName();
+        for(Field field : fieldModel) {
+            field.setAccessible(true);
+            String nameField = field.getName();
 
-            if(requestBody.containsKey(nomeCampo)){
-                String atualizacaoRequest = requestBody.get(nomeCampo);
-                campo.set(filme, atualizacaoRequest);
+            if(requestBody.containsKey(nameField)){
+                String atualizacaoRequest = requestBody.get(nameField);
+                field.set(filme, atualizacaoRequest);
             }
         }
 
