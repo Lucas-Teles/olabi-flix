@@ -104,28 +104,32 @@ public class FilmeController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Filme> patchFilme(@PathVariable UUID id, @RequestBody  Map<String, String> requestBody) throws IllegalAccessException {
+    public ResponseEntity<Filme> patch(@PathVariable UUID id, @RequestBody Map<String, String> requestBody) throws IllegalAccessException {
         Optional<Filme> filmeEncontrado = filmeRepository.findById(id);
 
-        if (filmeEncontrado.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(filmeEncontrado.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         Filme filme = filmeEncontrado.get();
 
         List<Field> camposDaModel = List.of(filme.getClass().getDeclaredFields());
-        for (Field field : camposDaModel) {
-            field.setAccessible(true);
-            String nameField = field.getName();
 
-            if(requestBody.containsKey(nameField)){
-                String atualizacaoRequest = requestBody.get(nameField);
-                field.set(filme, atualizacaoRequest);
+        for(Field campo : camposDaModel) {
+            campo.setAccessible(true);
+            String nomeCampo = campo.getName();
+
+            if(requestBody.containsKey(nomeCampo)){
+                String atualizacaoRequest = requestBody.get(nomeCampo);
+                campo.set(filme, atualizacaoRequest);
             }
         }
+
         filmeRepository.save(filme);
         return ResponseEntity.ok(filme);
+
     }
+
 
 
 }
